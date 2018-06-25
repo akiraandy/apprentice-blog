@@ -1,0 +1,12 @@
+---
+layout: post
+title: "Pairing tour -- Week 3"
+description: "My third week of pairing"
+categories: [pairing]
+tags: [pairing client consulting]
+redirect_from:
+  - /2018/06/25
+---
+For week 3 of my pairing tour I started the week out pairing with Rob and then transitioned to pairing with Eric and Cyrus out in our Libertyville office. Pairing with Rob at the start of the week was great. We continued our ping-pong TDD approach where Rob or I would write a test and the other person would have to write the code to make that test pass. One of the interesting problems facing us at the time was a heavy dependence on a 3rd party library. It is not always possible to skirt dependencies but it is best practice to have your code be as decoupled as possible. In our case, so many of the base operations we were doing required the use of this library so we had to write layers between the dependency and our implementations to ensure that if the dependency changed we wouldn't have a nightmare on our hands.
+
+On Thursday I started my pairing tour with Eric and Cyrus in Libertyville. To get up to speed on the project, I of course asked a lot of questions up front. Cyrus and Eric were both very generous and offered detailed explanations of what we were building and how the system in general worked. Like most other clients we have a story board where we draw our tasks from. For our current sprint we were working on creating an endpoint that would pull several different disparate data sets from the database and return it in a consolidated format. In our specific application there are three layers, the HTTP layer, logic layer and repository layer. The HTTP layer is responsible for communicating across a network doing basic HTTP work (GET, POST, PUT, DELETE requests) and passing those messages down the chain. The logic layer is basically responsible for translating between the higher HTTP level and the lower repo level. It is responsible for any algorithms for converting or working with data. The repository layer is a convenient way to communicate with the client's many databases. That separation of concerns makes the systems easier to reason about and also easier to (say it with me now) TEST! For this project we are using a 3rd party mocking library which I've never used before but is actually quite nice to use. It takes a little bit of knowledge to get up and running with the library but it does make isolating units easier so in the end I do feel like it's more efficient even if the up-front costs are maybe a more steep than normal.
