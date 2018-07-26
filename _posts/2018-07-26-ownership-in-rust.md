@@ -50,10 +50,11 @@ fn main() {
 }
 ```
 We get the following compiler error:
-```
+
+```rust
 error[E0425]: cannot find value `other_language` in this scope
 println!("{}", other_language);
-                    ^^^^^^^^^^^^^^ not found in this scope
+              ^^^^^^^^^^^^^^ not found in this scope
 ```
 To fix this:
 ```rust
@@ -76,11 +77,11 @@ fn main() {
 
 If we try to run this, we will get the following compiler error:
 
-```
+```rust
 let other_language = language;
     -------------- value moved here
 println!("{}", language);
-                   ^^^^^^^^ value used here after move
+               ^^^^^^^^ value used here after move
 = note: move occurs because `language` has type
 `std::string::String`, which does not implement the `Copy` trait
 ```
@@ -89,7 +90,7 @@ When we create the variable ```other_language``` and assign the value of ```lang
 
 Notice the error on the bottom:
 
-```
+```rust
 = note: move occurs because `language` has type
 `std::string::String`, which does not implement the `Copy` trait
 ```
@@ -133,7 +134,8 @@ fn add_to_word(word: String) { // language transfers ownership to word
 ```
 
 This code will fail to compile and we will get a familiar error:
-```
+
+```rust
 add_to_word(language);
             -------- value moved here
 let other_language = language;
@@ -224,7 +226,8 @@ fn add_to_word(word: &mut String) {
 ```
 
 If we try to run this code we will get the following compilation error:
-```
+
+```rust
 cannot borrow `language` as mutable more than once at a time
 let x = &mut language;
              -------- first mutable borrow occurs here
@@ -249,7 +252,7 @@ fn add_to_word(word: &mut String) {
 }
 ```
 
-```
+```rust
 cannot move out of `language` because it is borrowed
     let x = &mut language;
                  -------- borrow of `language` occurs here
@@ -280,7 +283,8 @@ fn dangling_reference() -> &String {
 ```
 
 If we try to run this code we get the following compiler error:
-```
+
+```rust
 missing lifetime specifier
 fn dangling_reference() -> &String {
                            ^ expected lifetime parameter
