@@ -86,7 +86,7 @@ println!("{}", language);
 `std::string::String`, which does not implement the `Copy` trait
 ```
 
-When we create the variable ```other_language``` and assign the value of ```language``` to it we are doing something called a “move”. In Rust, each object can only have one owner. When we assign ```language``` to ```other_language``` we are moving “ownership” of the data ```language``` has to ```other_language```. Upon the move Rust drops language and whatever data ```language``` was holding is now held by ```other_language```. We have transferred ownership. Any further calls to ```language``` after the move will result in an error.
+When we create the variable ```other_language``` and assign the value of ```language``` to it we are doing something called a “move”. In Rust, each object can only have one owner. When we assign ```language``` to ```other_language``` we are moving “ownership” of the data ```language``` has to ```other_language```. Upon the move Rust drops ```language``` and whatever data ```language``` was holding is now held by ```other_language```. We have transferred ownership. Any further calls to ```language``` after the move will result in an error.
 
 Notice the error on the bottom:
 
