@@ -291,7 +291,7 @@ fn dangling_reference() -> &String {
                            ^ expected lifetime parameter
 ```
 
-Lifetimes are another important concept in Rust that is also the subject for another post but basically what Rust is trying to warn us about here is that s doesn’t “live long enough” for a reference for ```&s``` to “survive”. Let’s investigate this a little further:
+Lifetimes are another important concept in Rust that is also the subject for another post but basically what Rust is trying to warn us about here is that ```s``` doesn’t “live long enough” for a reference for ```&s``` to “survive”. Let’s investigate this a little further:
 
 ```rust
 fn main() {
