@@ -245,6 +245,7 @@ fn main() {
     let mut language = String::from("Rust");
     let x = &mut language;
     add_to_word(&mut language);
+    let y = language;
 }
 
 fn add_to_word(word: &mut String) {
